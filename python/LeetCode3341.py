@@ -26,9 +26,11 @@ class Solution:
             for dir in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                 new_row = row + dir[0]
                 new_col = col + dir[1]
-                if 0 <= new_row < n and 0 <= new_col < m:
-                    edge = max(1, moveTime[new_row][new_col] - current_cost + 1)
 
+                if 0 <= new_row < n and 0 <= new_col < m:
+                    # compute the edge cost
+                    edge = max(1, moveTime[new_row][new_col] - current_cost + 1)
+                    # update the cost if it's less than the current known cost 
                     new_cost = current_cost + edge
                     if (new_row, new_col) not in cost or new_cost < cost[
                         (new_row, new_col)
