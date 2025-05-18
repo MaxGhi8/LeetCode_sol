@@ -44,7 +44,7 @@ public:
             
             for (const auto& [state, count] : dp) {
                 for (int nextState : validTransitions[state]) {
-                    nextDp[nextState] = (nextDp[nextState] + static_cast<int>(count)) % MOD;
+                    nextDp[nextState] = (nextDp[nextState] + count) % MOD;
                 }
             }
             
@@ -53,7 +53,7 @@ public:
         
         // Sum up all possibilities
         int total = 0;
-        for (const auto& [_, count] : dp) {a
+        for (const auto& [_, count] : dp) {
             total = (total + count) % MOD;
         }
         
